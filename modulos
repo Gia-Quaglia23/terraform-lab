@@ -1,1 +1,16 @@
+variable "bucket_count" {
+  description = "Number of S3 buckets to create"
+  type        = number
+}
+
+variable "lifecycle_rules" {
+  description = "Lifecycle rules for S3 buckets"
+  type        = map(object({
+    id        = string
+    status    = string
+    expiration = object({
+      days = number
+    })
+  }))
+}
 
